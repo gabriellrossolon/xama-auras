@@ -42,7 +42,6 @@ public class EntityStats : MonoBehaviour
                 StartCoroutine(BackOriginalColor());
                 hp -= (attackGet - armorPoints);
             }
-            
         }
         else
         {
@@ -53,7 +52,7 @@ public class EntityStats : MonoBehaviour
             spriteRenderer.color = Color.red;
             StartCoroutine(BackOriginalColor());
         }
-
+        Death();
         
     }
 
@@ -62,4 +61,20 @@ public class EntityStats : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = originalColor;  
     }
+    private void Death()
+    {
+        if (hp <= 0)
+        {
+            if (this.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Morreu");
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
+        }
+    }
 }
+
