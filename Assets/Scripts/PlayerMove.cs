@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerMove : MonoBehaviour
 {
     private EntityStats entityStats;
     private Rigidbody2D rb;
     private SkillController skillController;
+    private Animator anim;
 
     public float dashForce = 10f; // Força do dash
     public float dashDuration = 0.2f; // Duração do dash
@@ -15,11 +17,15 @@ public class PlayerMove : MonoBehaviour
     private float dashCooldown;
     public int dashCdr;
 
+    private float lastInputX;
+    private float lastInputY;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         entityStats = GetComponent<EntityStats>();
         skillController = GetComponent<SkillController>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,6 +36,8 @@ public class PlayerMove : MonoBehaviour
             Dash();
         }
         DashCooldown();
+
+        Animate();
     }
 
     private void Movement()
@@ -43,6 +51,26 @@ public class PlayerMove : MonoBehaviour
 
         // Define a velocidade do Rigidbody com base nos stats da entidade
         rb.velocity = movement * entityStats.moveSpeed;
+
+        if (moveHorizontal == 0 && moveVertical == 0)
+        {
+            anim.SetBool("isWalking", false);
+            return;
+        }
+
+        if (moveHorizontal != 0 || moveVertical != 0)
+        {
+            anim.SetBool("isWalking", true);
+
+            lastInputX = moveHorizontal;
+            lastInputY = moveVertical;
+        }   
+    }
+
+    private void Animate()
+    {
+        anim.SetFloat("MoveX", lastInputX);
+        anim.SetFloat("MoveY", lastInputY);
     }
 
     private void Dash()

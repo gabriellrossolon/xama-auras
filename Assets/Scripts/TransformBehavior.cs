@@ -6,6 +6,7 @@ public class TransformBehavior : MonoBehaviour
 {
     private SkillController skillController;
     private EntityStats entityStats;
+    private SpriteRenderer spriteRenderer;
 
     public bool canTransform = true;
     private float transformCooldown;
@@ -15,15 +16,15 @@ public class TransformBehavior : MonoBehaviour
 
     private void Start()
     {
+        canTransform = true;
         skillController = GetComponent<SkillController>();
         entityStats = GetComponent<EntityStats>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
         TransformationCooldown();
-        TransformationExecuting();
-
-        TransformationVerifs();
+        TransformationExecuting();     
     }
 
     private void TransformationCooldown()
@@ -48,6 +49,8 @@ public class TransformBehavior : MonoBehaviour
             transformCooldown = 0;
 
             actualTransformation = "Urso";
+
+            TransformationVerifs();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && canTransform)
         {
@@ -56,6 +59,8 @@ public class TransformBehavior : MonoBehaviour
             transformCooldown = 0;
 
             actualTransformation = "Tartaruga";
+
+            TransformationVerifs();
         } 
         else if (Input.GetKeyDown(KeyCode.Alpha3) && canTransform)
         {
@@ -64,7 +69,11 @@ public class TransformBehavior : MonoBehaviour
             transformCooldown = 0;
 
             actualTransformation = "Leopardo";
+
+            TransformationVerifs();
         }
+
+
     }
 
     private void TransformationVerifs()
@@ -72,20 +81,28 @@ public class TransformBehavior : MonoBehaviour
         if (actualTransformation == "Leopardo")
         {
             entityStats.moveSpeed = 6;
+            entityStats.armorPoints = 0;
             skillController.canUseDash = true;
+            spriteRenderer.color = new Color(0.831f, 0.831f, 0f);
         }
         else if (actualTransformation == "Tartaruga")
         {
             entityStats.moveSpeed = 1;
+            entityStats.armorPoints = 5;
+            skillController.canUseDash = false;
+            spriteRenderer.color = new Color(0.073f, 0.408f, 0.063f);
         }
         else if (actualTransformation == "Urso")
         {
             entityStats.moveSpeed = 3;
-        }
-        else
-        {
-            entityStats.moveSpeed = 4;
+            entityStats.armorPoints = 0;
             skillController.canUseDash = false;
+            spriteRenderer.color = new Color(0.333f, 0.176f, 0.059f);
+        }
+        else if (actualTransformation == "Human")
+        {
+            spriteRenderer.color = Color.white;
+            entityStats.moveSpeed = 4;
         }
     }
 }
