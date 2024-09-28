@@ -5,4 +5,5 @@ using UnityEngine;
 public class SkillController : MonoBehaviour
 {
     public bool canUseDash;
+    public bool canUseAttack;
 }

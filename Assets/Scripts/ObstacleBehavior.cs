@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ObstacleBehavior : MonoBehaviour
 {
+    private BoxCollider2D obstacleCollider;
+
+    private void Start()
+    {
+        obstacleCollider = GetComponent<BoxCollider2D>();
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -12,7 +18,7 @@ public class ObstacleBehavior : MonoBehaviour
 
             if (playerMove.isDashing)
             {
-                GetComponent<BoxCollider2D>().enabled = false;
+                obstacleCollider.enabled = false;
                 StartCoroutine(ReenableCollider());
             }
         }
@@ -20,7 +26,7 @@ public class ObstacleBehavior : MonoBehaviour
 
     private IEnumerator ReenableCollider()
     {
-        yield return new WaitForSeconds(0.5f); // Tempo antes de reativar o collider
-        GetComponent<BoxCollider2D>().enabled = true; // Reativa o collider
+        yield return new WaitForSeconds(0.5f);
+        obstacleCollider.enabled = true;
     }
 }

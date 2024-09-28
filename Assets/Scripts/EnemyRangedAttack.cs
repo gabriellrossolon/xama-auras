@@ -7,7 +7,7 @@ public class EnemyRangedAttack : MonoBehaviour
 {
     private GameObject playerObject;
     private EntityStats entityStats;
-    public Animator anim;
+    private Animator anim;
 
     public GameObject projectilePrefab;
 

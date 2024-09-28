@@ -94,14 +94,11 @@ public class PlayerMove : MonoBehaviour
     private IEnumerator PerformDash(Vector2 direction)
     {
         isDashing = true;
-
-        // Adiciona força na direção do dash
+        anim.SetTrigger("isDash");
         rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
 
-        // Espera durante a duração do dash
         yield return new WaitForSeconds(dashDuration);
 
-        // Opcional: pode retornar a velocidade para 0 após o dash
         rb.velocity = Vector2.zero;
 
         isDashing = false;

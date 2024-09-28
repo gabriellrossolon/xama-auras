@@ -51,9 +51,10 @@ public class EntityStats : MonoBehaviour
 
             spriteRenderer.color = Color.red;
             StartCoroutine(BackOriginalColor());
+            Debug.Log(originalColor);
         }
+
         Death();
-        
     }
 
     private IEnumerator BackOriginalColor()
@@ -71,9 +72,18 @@ public class EntityStats : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject);
+                if(this.gameObject.GetComponent<EnemyRangedAttack>() != null)
+                {
+                    this.gameObject.GetComponent<EnemyRangedAttack>().enabled = false;
+                }
+                else if (this.gameObject.GetComponent<EnemyMeeleAttack>() != null)
+                {
+                    this.gameObject.GetComponent<EnemyMeeleAttack>().enabled = false;
+                }
+                
+                Destroy(this.gameObject, 1f);
             }
-
+            this.GetComponent<Animator>().SetTrigger("isDeath");
         }
     }
 }

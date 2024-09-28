@@ -143,6 +143,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: gentle forest (48x48 resize) v01_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 432
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32882839aeee01f498b572e8ad8f434e
+      internalID: -901702630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -155,6 +176,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       gentle forest (48x48 resize) v01_0: 1725657391
+      gentle forest (48x48 resize) v01_1: -901702630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

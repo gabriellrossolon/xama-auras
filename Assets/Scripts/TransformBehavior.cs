@@ -84,6 +84,9 @@ public class TransformBehavior : MonoBehaviour
             entityStats.armorPoints = 0;
             skillController.canUseDash = true;
             spriteRenderer.color = new Color(0.831f, 0.831f, 0f);
+            entityStats.attackSpeed = 0.5f;
+            entityStats.attackDamage = 1;
+            skillController.canUseAttack = true;
         }
         else if (actualTransformation == "Tartaruga")
         {
@@ -91,6 +94,9 @@ public class TransformBehavior : MonoBehaviour
             entityStats.armorPoints = 5;
             skillController.canUseDash = false;
             spriteRenderer.color = new Color(0.073f, 0.408f, 0.063f);
+            entityStats.attackSpeed = 1.5f;
+            entityStats.attackDamage = 1;
+            skillController.canUseAttack = true;
         }
         else if (actualTransformation == "Urso")
         {
@@ -98,11 +104,15 @@ public class TransformBehavior : MonoBehaviour
             entityStats.armorPoints = 0;
             skillController.canUseDash = false;
             spriteRenderer.color = new Color(0.333f, 0.176f, 0.059f);
+            entityStats.attackSpeed = 1.5f;
+            entityStats.attackDamage = 3;
+            skillController.canUseAttack = true;
         }
         else if (actualTransformation == "Human")
         {
             spriteRenderer.color = Color.white;
             entityStats.moveSpeed = 4;
+            skillController.canUseAttack = false;
         }
     }
 }
