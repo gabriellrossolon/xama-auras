@@ -20,7 +20,8 @@ public class WeaponBehavior : MonoBehaviour
         {
             if(playerObject.GetComponent<TransformBehavior>().actualTransformation == "Urso")
             {
-                Destroy(collision.gameObject);
+                collision.GetComponent<Animator>().SetTrigger("isDestruct");
+                Destroy(collision.gameObject, 0.3f);
             }
             else
             {

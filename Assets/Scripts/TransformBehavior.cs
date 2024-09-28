@@ -9,7 +9,7 @@ public class TransformBehavior : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public bool canTransform = true;
-    private float transformCooldown;
+    [HideInInspector] public float transformCooldown;
     public int transformCdr;
 
     public string actualTransformation;
@@ -20,6 +20,7 @@ public class TransformBehavior : MonoBehaviour
         skillController = GetComponent<SkillController>();
         entityStats = GetComponent<EntityStats>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        transformCooldown = transformCdr;
     }
     void Update()
     {
@@ -32,7 +33,7 @@ public class TransformBehavior : MonoBehaviour
         if (transformCooldown >= transformCdr && !canTransform)
         {
             canTransform = true;
-            transformCooldown = 0;
+            //transformCooldown = 0;
         }
         else
         {

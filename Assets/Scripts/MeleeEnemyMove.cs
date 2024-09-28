@@ -10,7 +10,7 @@ public class MeleeEnemyMove : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public float detectionRange = 5f;
 
-    private Rigidbody2D rb; // Referência ao Rigidbody2D
+    [HideInInspector] public Rigidbody2D rb; // Referência ao Rigidbody2D
 
     void Start()
     {
@@ -32,7 +32,6 @@ public class MeleeEnemyMove : MonoBehaviour
             MoveTowardsPlayer();
         }
     }
-
     private void MoveTowardsPlayer()
     {
         Vector2 direction = (playerObject.transform.position - transform.position).normalized;
