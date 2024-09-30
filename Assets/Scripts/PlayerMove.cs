@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+//using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -85,6 +85,7 @@ public class PlayerMove : MonoBehaviour
         // Verifica se o jogador pressionou a tecla de dash e se está se movendo
         if (movement.magnitude > 0 && Input.GetKeyDown(KeyCode.Space) && canDash && skillController.canUseDash) // Mude a tecla conforme necessário
         {
+            isDashing = true;
             StartCoroutine(PerformDash(movement));
             canDash = false;
             dashCooldown = 0;
@@ -93,7 +94,6 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator PerformDash(Vector2 direction)
     {
-        isDashing = true;
         anim.SetTrigger("isDash");
         rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
 

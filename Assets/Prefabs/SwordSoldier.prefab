@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 5
+  rb: {fileID: 0}
 --- !u!114 &3629840236705662675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +81,7 @@ MonoBehaviour:
   hp: 0
   attackDamage: 2
   armorPoints: 0
-  moveSpeed: 0
+  moveSpeed: 2
   attackSpeed: 1
 --- !u!212 &7934359160741366796
 SpriteRenderer:

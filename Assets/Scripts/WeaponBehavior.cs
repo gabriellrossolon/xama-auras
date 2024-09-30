@@ -5,6 +5,9 @@ using UnityEngine;
 public class WeaponBehavior : MonoBehaviour
 {
     private GameObject playerObject;
+    public AudioSource attackHitAudioSource;
+    public AudioClip attackEnemyHitAudioClip;
+    public AudioClip attackObjectHitAudioClip;
 
     private void Start()
     {
@@ -15,6 +18,7 @@ public class WeaponBehavior : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<EntityStats>().DoDamage(playerObject.GetComponent<EntityStats>().attackDamage);
+            attackHitAudioSource.PlayOneShot(attackEnemyHitAudioClip);
         }
         else if (collision.CompareTag("Destroyable"))
         {
@@ -22,12 +26,13 @@ public class WeaponBehavior : MonoBehaviour
             {
                 collision.GetComponent<Animator>().SetTrigger("isDestruct");
                 Destroy(collision.gameObject, 0.3f);
+
             }
             else
             {
                 Debug.Log("Não tem força para destruir esse Obstaculo");
             }
-            
+            attackHitAudioSource.PlayOneShot(attackObjectHitAudioClip);
         }
     }
 }

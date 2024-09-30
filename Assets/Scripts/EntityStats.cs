@@ -72,7 +72,8 @@ public class EntityStats : MonoBehaviour
         {
             if (this.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Morreu");
+                HudManager.Instance.GameOverHud.SetActive(true);
+                Time.timeScale = 0;
             }
             else
             {

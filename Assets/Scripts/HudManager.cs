@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HudManager : MonoBehaviour
 {
@@ -27,6 +28,13 @@ public class HudManager : MonoBehaviour
 
     public Slider transformCdBar;
     public Image transformCdImg;
+
+    public Image BearBg;
+    public Image TurtleBg;
+    public Image LeopardBg;
+
+    public GameObject GameOverHud;
+    public GameObject EndGameHud;
     
 
     void Start()
@@ -54,5 +62,11 @@ public class HudManager : MonoBehaviour
         {
             transformCdImg.color = Color.yellow;
         }
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("SampleScene"); // Altere "SampleScene" para o nome exato da sua cena
+        Time.timeScale = 1;
     }
 }

@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 5
   hp: 0
-  attackDamage: 1
+  attackDamage: 3
   armorPoints: 0
   moveSpeed: 0
   attackSpeed: 2

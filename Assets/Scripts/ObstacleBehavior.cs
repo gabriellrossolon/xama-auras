@@ -26,7 +26,7 @@ public class ObstacleBehavior : MonoBehaviour
 
     private IEnumerator ReenableCollider()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         obstacleCollider.enabled = true;
     }
 }

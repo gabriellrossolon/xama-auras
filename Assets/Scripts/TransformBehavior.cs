@@ -21,6 +21,8 @@ public class TransformBehavior : MonoBehaviour
         entityStats = GetComponent<EntityStats>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         transformCooldown = transformCdr;
+
+        TransformationVerifs();
     }
     void Update()
     {
@@ -88,6 +90,10 @@ public class TransformBehavior : MonoBehaviour
             entityStats.attackSpeed = 0.5f;
             entityStats.attackDamage = 1;
             skillController.canUseAttack = true;
+
+            HudManager.Instance.BearBg.color = new Color(1f, 1f, 1f, 0.3f);
+            HudManager.Instance.TurtleBg.color = new Color(1f, 1f, 1f, 0.3f);
+            HudManager.Instance.LeopardBg.color = new Color(0f, 1f, 0f, 0.3f);
         }
         else if (actualTransformation == "Tartaruga")
         {
@@ -98,6 +104,10 @@ public class TransformBehavior : MonoBehaviour
             entityStats.attackSpeed = 1.5f;
             entityStats.attackDamage = 1;
             skillController.canUseAttack = true;
+
+            HudManager.Instance.BearBg.color = new Color(1f, 1f, 1f, 0.3f);
+            HudManager.Instance.TurtleBg.color = new Color(0f, 1f, 0f, 0.3f);
+            HudManager.Instance.LeopardBg.color = new Color(1f, 1f, 1f, 0.3f);
         }
         else if (actualTransformation == "Urso")
         {
@@ -108,12 +118,20 @@ public class TransformBehavior : MonoBehaviour
             entityStats.attackSpeed = 1.5f;
             entityStats.attackDamage = 3;
             skillController.canUseAttack = true;
+
+            HudManager.Instance.BearBg.color = new Color(0f, 1f, 0f, 0.3f);
+            HudManager.Instance.TurtleBg.color = new Color(1f, 1f, 1f, 0.3f);
+            HudManager.Instance.LeopardBg.color = new Color(1f, 1f, 1f, 0.3f);
         }
         else if (actualTransformation == "Human")
         {
             spriteRenderer.color = Color.white;
             entityStats.moveSpeed = 4;
             skillController.canUseAttack = false;
+
+            HudManager.Instance.BearBg.color = new Color(1f, 1f, 1f, 0.3f);
+            HudManager.Instance.TurtleBg.color = new Color(1f, 1f, 1f, 0.3f);
+            HudManager.Instance.LeopardBg.color = new Color(1f, 1f, 1f, 0.3f);
         }
     }
 }

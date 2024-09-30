@@ -8,6 +8,8 @@ public class PlayerMAttack : MonoBehaviour
     public Transform weaponParent;
     private EntityStats entityStats;
     private SkillController skillController;
+    public AudioSource attackAudioSource;
+    public AudioClip attackAudioClip;
 
     private float attackCooldown;
     private bool canAttack = true;
@@ -32,6 +34,7 @@ public class PlayerMAttack : MonoBehaviour
             StartCoroutine(ActiveWeaponCollider());
             canAttack = false;
             attackCooldown = 0;
+            attackAudioSource.PlayOneShot(attackAudioClip);
         }
     }
 
