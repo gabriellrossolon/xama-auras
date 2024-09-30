@@ -185382,7 +185382,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.773468, y: -0.022960171, z: -10.056239}
+  m_LocalPosition: {x: 51.69653, y: 50.42704, z: -10.056239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -185752,7 +185752,7 @@ Transform:
   m_GameObject: {fileID: 702641045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.28, y: -0.04, z: 0}
+  m_LocalPosition: {x: 51.19, y: 50.41, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -221031,10 +221031,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3629840236705662675, guid: e501ba3f6354dab4c9a158e95efd16b5, type: 3}
-      propertyPath: moveSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5545804134927205108, guid: e501ba3f6354dab4c9a158e95efd16b5, type: 3}
       propertyPath: m_Name
       value: SwordSoldier (1)
@@ -221627,7 +221623,7 @@ Transform:
   m_GameObject: {fileID: 2080718165}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.773468, y: -0.022960171, z: -10.056239}
+  m_LocalPosition: {x: 51.69653, y: 50.42704, z: -10.056239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
